@@ -22,7 +22,8 @@ cloudinary.config({
 const upload = function(file) {
     var rel = file.replace(directory + '/', '');
     cloudinary.uploader.upload(file, {
-        public_id: rel,
+        public_id: rel.slice(0, -4),
+        use_filename: true,
         unique_filename: false,
     }, function(error, result) {
         console.log(result, error)
