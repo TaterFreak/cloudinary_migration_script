@@ -39,15 +39,16 @@
         </div>
         <script>
             const images = document.querySelectorAll('[data-src]');
-            const updateImages = (value) => {
+            const updateImages = (val) => {
+                const value = parseInt(val)
                 images.forEach((image, key) => {
-                    if (value == 1) {
+                    if (value === 1) {
                         image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/v1606403774/test/${key+1}.webp`)
-                    } else if (value == 2) {
+                    } else if (value === 2) {
                         image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/q_10/v1606403774/test/${key+1}.jpg`)
-                    } else if (value == 3) {
+                    } else if (value === 3) {
                         image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/ar_4:3,c_fill/c_scale,w_auto,dpr_auto/v1606403774/test/${key+1}.jpg`)
-                    } else if (value == 4) {
+                    } else if (value === 4) {
                         image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/v1606403774/test/${key+1}.jpg`)
                     }
                 })
