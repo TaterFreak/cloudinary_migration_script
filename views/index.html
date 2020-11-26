@@ -14,29 +14,53 @@
         </style>
     </head>
     <body>
+
+        <div>
+            <select name="" id="data">
+                <option value="1">webp</option>
+                <option value="2">quality 10</option>
+                <option value="3">crop</option>
+                <option value="4" selected>default</option>
+            </select>
+        </div>
         <div class="grid">
-            <img data-src="." alt="">
-            <img data-src="." alt="">
-            <img data-src="." alt="">
-            <img data-src="." alt="">
-            <img data-src="." alt="">
-            <img data-src="." alt="">
-            <img data-src="." alt="">
-            <img data-src="." alt="">
-            <img data-src="." alt="">
-            <img data-src="." alt="">
-            <img data-src="." alt="">
-            <img data-src="." alt="">
+            <img data-src alt="">
+            <img data-src alt="">
+            <img data-src alt="">
+            <img data-src alt="">
+            <img data-src alt="">
+            <img data-src alt="">
+            <img data-src alt="">
+            <img data-src alt="">
+            <img data-src alt="">
+            <img data-src alt="">
+            <img data-src alt="">
+            <img data-src alt="">
         </div>
         <script>
             const images = document.querySelectorAll('[data-src]');
+            const updateImages = (value) => {
+                images.forEach((image, key) => {
+                    if (value == 1) {
+                        image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/v1606403774/test/${key+1}.webp`)
+                    } else if (value == 2) {
+                        image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/q_10/v1606403774/test/${key+1}.jpg`)
+                    } else if (value == 3) {
+                        image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/ar_4:3,c_fill/c_scale,w_auto,dpr_auto/v1606403774/test/${key+1}.jpg`)
+                    } else if (value == 4) {
+                        image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/v1606403774/test/${key+1}.jpg`)
+                    }
+                })
+            }
 
-            images.forEach((image, key) => {
-                //image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/v1606403774/test/$webpy+1}.jpg`)
-                //image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/q_10/v1606403774/test/${key+1}.jpg`)
-                image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/ar_4:3,c_fill/c_scale,w_auto,dpr_auto/v1606403774/test/${key+1}.jpg`)
-                //image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/v1606403774/test/${key+1}.jpg`)
-            })
+            const e = document.getElementById('data');
+
+            e.addEventListener('change', () => {
+                updateImages(e.value)
+            });
+
+            updateImages(4);
+
         </script>
     </body>
 </html>
