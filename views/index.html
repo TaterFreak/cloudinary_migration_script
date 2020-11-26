@@ -1,0 +1,42 @@
+<html lang="en">
+    <head>
+        <title>Test Cloudinary</title>
+        <style>
+            .grid {
+                display: grid;
+                grid-gap: 2em;
+                grid-template-columns: repeat( auto-fill, minmax( 400px, 1fr ) );
+            }
+
+            img {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="grid">
+            <img data-src="." alt="">
+            <img data-src="." alt="">
+            <img data-src="." alt="">
+            <img data-src="." alt="">
+            <img data-src="." alt="">
+            <img data-src="." alt="">
+            <img data-src="." alt="">
+            <img data-src="." alt="">
+            <img data-src="." alt="">
+            <img data-src="." alt="">
+            <img data-src="." alt="">
+            <img data-src="." alt="">
+        </div>
+        <script>
+            const images = document.querySelectorAll('[data-src]');
+
+            images.forEach((image, key) => {
+                //image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/v1606403774/test/$webpy+1}.jpg`)
+                //image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/q_10/v1606403774/test/${key+1}.jpg`)
+                image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/ar_4:3,c_fill/c_scale,w_auto,dpr_auto/v1606403774/test/${key+1}.jpg`)
+                //image.setAttribute('src', `https://res.cloudinary.com/dcfwdzp0k/image/upload/v1606403774/test/${key+1}.jpg`)
+            })
+        </script>
+    </body>
+</html>
